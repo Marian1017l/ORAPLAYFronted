@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-editar-cliente',
-  imports: [],
+  standalone  : false,
   templateUrl: './editar-cliente.component.html',
   styleUrl: './editar-cliente.component.css'
 })

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-crear-cliente',
-  imports: [],
+  standalone: false,
   templateUrl: './crear-cliente.component.html',
   styleUrl: './crear-cliente.component.css'
 })

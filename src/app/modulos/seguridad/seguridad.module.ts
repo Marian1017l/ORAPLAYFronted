@@ -24,5 +24,5 @@ import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.co
     ReactiveFormsModule, 
     FormsModule
   ]
-})
+}) 
 export class SeguridadModule { }

@@ -10,7 +10,7 @@ import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, PieDePaginaComponent, EncabezadoComponent],
+  imports: [RouterOutlet, CommonModule, PieDePaginaComponent, EncabezadoComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

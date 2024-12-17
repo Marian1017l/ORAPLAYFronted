@@ -3,7 +3,7 @@ import { ApuestaJugadorModel } from "./apuesta-jugador.model";
 import { ApuestaMarcadorModel } from "./apuesta-marcador.model";
 import { MetodoPagoModel } from "./metodo-pago.model";
 
-export class Usuario {
+export class UsuarioModel {
   idUsuario?: number;
   nombre?: string;
   apellido?: string;
