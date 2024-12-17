@@ -9,7 +9,8 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [
     CommonModule, 
     ReactiveFormsModule, 
-    FormsModule
+    FormsModule,
+    RouterLink
   ],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
