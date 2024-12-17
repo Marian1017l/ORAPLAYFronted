@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* filepath: /c:/Users/usuario/OneDrive/Documentos/Bases II Fronted/ORAPLAYFronted/src/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
