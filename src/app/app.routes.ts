@@ -21,6 +21,10 @@ export const routes: Routes = [
         loadChildren:()=>import('./modulos/parametros/parametros.module').then(m=>m.ParametrosModule)
     },
     {
+        path:'atencion',
+        loadChildren:()=>import('./modulos/atencion/atencion.module').then(m=>m.AtencionModule)
+    },
+    {
         path: '**',
         component: RutaNoEncontradaComponent
     }

@@ -8,13 +8,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
+import { ApuestasComponent } from './apuestas/apuestas.component';
 
 @NgModule({
   declarations: [
     IdentificacionUsuarioComponent,
     CerrarSesionComponent,
     RecuperarClaveComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    ApuestasComponent
   ],
   imports: [
     CommonModule,
