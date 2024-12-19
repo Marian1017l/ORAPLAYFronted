@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SeguridadService } from '../../../servicios/seguridad.service';
 import { UsuarioModel } from '../../../modelos/usuario.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-usuario',
@@ -14,7 +15,8 @@ export class RegistroUsuarioComponent {
 
   constructor(
     private fb: FormBuilder,
-    private servicioSeguridad: SeguridadService
+    private servicioSeguridad: SeguridadService,
+    private router: Router
   ) {}
 
   ngOnInit(){
@@ -45,6 +47,7 @@ export class RegistroUsuarioComponent {
     this.servicioSeguridad.RegistrarUsuario(datos).subscribe({
       next: (data: any) => {
         console.log('Registro exitoso:', data);
+        this.router.navigate(['inicio']);
       },
       error: (error) => {
         console.error('Error en el registro:', error.error); // Muestra el mensaje detallado

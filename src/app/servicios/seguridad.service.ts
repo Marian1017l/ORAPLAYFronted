@@ -21,9 +21,9 @@ export class SeguridadService {
    * @param clave 
    * @returns datos del usuario valido
    */
-  identificarUsuario(usuario: string, clave: string): Observable<boolean> {
-    return this.http.post<boolean>(`${this.urlBase}usuarios/verificar1`, {
-      correo: usuario,  
+  identificarUsuario(usuario: string, clave: string): Observable<UsuarioModel> {
+    return this.http.post<UsuarioModel>(`${this.urlBase}verificar-usuario`, {
+      email: usuario,  
       contraseña: clave
     });
   }
@@ -49,7 +49,7 @@ export class SeguridadService {
 
 /**
  * Busca los datos del usuario en el local storage
- * @returns datos del usuario
+ * @returns datos del usuario o nulo
  */
   ObtenerDatosUsuarioLS():UsuarioModel | null{
     let datosLS= localStorage.getItem('datos-usuario');
@@ -60,12 +60,17 @@ export class SeguridadService {
       return null
     }
   }
-  RegistrarUsuario(datos: any):Observable<UsuarioModel>{
-    return this.http.post<UsuarioModel>(`${this.urlBase}usuario`, datos);
+
+
+  CerrarSesion(){
+    let datosLS= localStorage.getItem('datos-usuario');
+    if(datosLS){
+      localStorage.removeItem('datos-usuario');
+    }
   }
 
-  EnviarDatosSesion(datos:UsuarioModel):Observable<UsuarioModel>{
-    return this.http.post<UsuarioModel>(`${this.urlBase}usuarios/verificar`, datos);
+  RegistrarUsuario(datos: any):Observable<any>{
+    return this.http.post<UsuarioModel>(`${this.urlBase}usuario`, datos);
   }
 
 

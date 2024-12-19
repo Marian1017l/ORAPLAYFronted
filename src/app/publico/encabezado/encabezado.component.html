@@ -39,7 +39,7 @@
 
                 <!-- Boton cerrar sesion -->
                 <li>
-                    <button *ngIf="sesionActiva" routerLink="/seguridad/cerrar-sesion" type="button" class="mr-10 bg-registrarse block py-2 px-3 md:py-1 md:px-5 w-100 rounded-md text-white">Cerrar Sesión</button>
+                    <button (click)="CerrarSesionUsuario()" *ngIf="sesionActiva" routerLink="/inicio" type="button" class="mr-10 bg-registrarse block py-2 px-3 md:py-1 md:px-5 w-100 rounded-md text-white">Cerrar Sesión</button>
                 </li>
             </ul>
         </div>

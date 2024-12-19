@@ -28,7 +28,7 @@ export class IdentificacionUsuarioComponent {
 
   ConstruirFormulario(){
     this.fGroup = this.fb.group({
-      usuario: ['', [Validators.required, Validators.email]],
+      correo: ['', [Validators.required, Validators.email]],
       clave: ['', [Validators.required]]
     });
   }
@@ -38,16 +38,18 @@ export class IdentificacionUsuarioComponent {
       alert('Formulario inválido');
       return;
     }
-  
-    let usuario = this.obtenerFormGroup['usuario'].value;
-    let clave = this.obtenerFormGroup['clave'].value;
-  
-    this.servicioSeguridad.identificarUsuario(usuario, clave).subscribe({
-      next: (esValido: boolean) => {
-        if (!esValido) {
+    let usuario = this.obtenerFormGroup['correo'].value;
+    let password = this.obtenerFormGroup['clave'].value;
+    console.log(usuario, password);
+    
+    this.servicioSeguridad.identificarUsuario(usuario, password).subscribe({
+      next: (data: UsuarioModel) => {
+        if (!data) {
           alert('Credenciales incorrectas');
         } else {
-          // Aquí podrías almacenar los datos del usuario, si es necesario
+          console.log(data);
+          
+          this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(data);
           this.router.navigate(['inicio']);
         }
       },
