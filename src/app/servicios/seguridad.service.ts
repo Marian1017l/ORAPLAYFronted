@@ -22,7 +22,7 @@ export class SeguridadService {
    * @returns datos del usuario valido
    */
   identificarUsuario(usuario: string, clave: string): Observable<boolean> {
-    return this.http.post<boolean>(`${this.urlBase}usuarios/verificar`, {
+    return this.http.post<boolean>(`${this.urlBase}usuarios/verificar1`, {
       correo: usuario,  
       contraseña: clave
     });
@@ -61,7 +61,7 @@ export class SeguridadService {
     }
   }
   RegistrarUsuario(datos: any):Observable<UsuarioModel>{
-    return this.http.post<UsuarioModel>(`${this.urlBase}usuarios`, datos);
+    return this.http.post<UsuarioModel>(`${this.urlBase}usuario`, datos);
   }
 
   EnviarDatosSesion(datos:UsuarioModel):Observable<UsuarioModel>{

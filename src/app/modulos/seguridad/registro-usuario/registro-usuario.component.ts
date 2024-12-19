@@ -37,16 +37,18 @@ export class RegistroUsuarioComponent {
       nombre: campos["nombre"].value,
       apellido: campos["apellido"].value,
       correo: campos["correo"].value,
-      clave: campos["clave"].value,
+      password: campos["clave"].value,
       telefono: campos["telefono"].value
     }
+    console.log(datos);
+    
     this.servicioSeguridad.RegistrarUsuario(datos).subscribe({
-      next: (data:UsuarioModel)=>{
-        console.log(data);
+      next: (data: any) => {
+        console.log('Registro exitoso:', data);
       },
-      error: (error)=>{
-        console.log(error);
-      }
+      error: (error) => {
+        console.error('Error en el registro:', error.error); // Muestra el mensaje detallado
+      },
     });
   }
 
