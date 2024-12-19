@@ -7,6 +7,7 @@ import { EditarClienteComponent } from './cliente/editar-cliente/editar-cliente.
 import { HistorialDeApuestasComponent } from './cliente/historial-de-apuestas/historial-de-apuestas.component';
 import { ListarMetodoDePagoComponent } from './cliente/metodos-de-pago/listar-metodo-de-pago/listar-metodo-de-pago.component';
 import { CrearMetodoDePagoComponent } from './cliente/metodos-de-pago/crear-metodo-de-pago/crear-metodo-de-pago.component';
+import { ListarPartidoComponent } from './partido/listar-partido/listar-partido.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CrearMetodoDePagoComponent } from './cliente/metodos-de-pago/crear-meto
     EditarClienteComponent,
     HistorialDeApuestasComponent,
     ListarMetodoDePagoComponent,
-    CrearMetodoDePagoComponent
+    CrearMetodoDePagoComponent,
+    ListarPartidoComponent
   ],
   imports: [
     CommonModule,

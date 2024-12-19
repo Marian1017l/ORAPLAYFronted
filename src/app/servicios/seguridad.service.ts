@@ -21,12 +21,13 @@ export class SeguridadService {
    * @param clave 
    * @returns datos del usuario valido
    */
-  identificarUsuario(usuario: string, clave: string):Observable<UsuarioModel>{
-    return this.http.post<UsuarioModel>(`${this.urlBase}usuarios`, {
-      correo : usuario,  
-      clave : clave 
+  identificarUsuario(usuario: string, clave: string): Observable<boolean> {
+    return this.http.post<boolean>(`${this.urlBase}usuarios/verificar`, {
+      correo: usuario,  
+      contraseña: clave
     });
   }
+  
 
   /**
    * Almacena los datos del usuario 
@@ -62,5 +63,10 @@ export class SeguridadService {
   RegistrarUsuario(datos: any):Observable<UsuarioModel>{
     return this.http.post<UsuarioModel>(`${this.urlBase}usuarios`, datos);
   }
+
+  EnviarDatosSesion(datos:UsuarioModel):Observable<UsuarioModel>{
+    return this.http.post<UsuarioModel>(`${this.urlBase}usuarios/verificar`, datos);
+  }
+
 
 }

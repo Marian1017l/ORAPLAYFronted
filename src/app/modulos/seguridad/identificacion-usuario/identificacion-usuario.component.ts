@@ -33,33 +33,31 @@ export class IdentificacionUsuarioComponent {
     });
   }
   
-  IdentificarUsuario(){
-    if(this.fGroup.invalid){
-      alert('Formulario Invalido');
-    }else{
-      let usuario = this.obtenerFormGroup['usuario'].value;
-      let clave = this.obtenerFormGroup['clave'].value;
-      let claveCifrada = MD5(clave).toString();
-      this.servicioSeguridad.identificarUsuario(usuario, claveCifrada).subscribe({
-        next: (data:UsuarioModel) => {
-          console.log(data);
-          if(data.idUsuario == undefined || data.idUsuario == null){
-            alert('Credenciales incorrectas')
-          }else{
-
-          console.log(data);
-          if(this.servicioSeguridad.AlmacenarDatosUsuarioIdentificado(data)){
-            this.router.navigate(['inicio']);
-          }
-         }
-        },
-        error: (err)=>{
-          console.log(err);
-          
-        }
-      })
+  IdentificarUsuario() {
+    if (this.fGroup.invalid) {
+      alert('Formulario inválido');
+      return;
     }
+  
+    let usuario = this.obtenerFormGroup['usuario'].value;
+    let clave = this.obtenerFormGroup['clave'].value;
+  
+    this.servicioSeguridad.identificarUsuario(usuario, clave).subscribe({
+      next: (esValido: boolean) => {
+        if (!esValido) {
+          alert('Credenciales incorrectas');
+        } else {
+          // Aquí podrías almacenar los datos del usuario, si es necesario
+          this.router.navigate(['inicio']);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+        alert('Hubo un error al intentar identificar al usuario. Por favor, inténtalo nuevamente.');
+      }
+    });
   }
+  
 
   get obtenerFormGroup(){
     return this.fGroup.controls;
