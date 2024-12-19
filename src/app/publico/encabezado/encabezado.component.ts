@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NavigationStart, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { SeguridadService } from '../../servicios/seguridad.service';
+import { UsuarioModel } from '../../modelos/usuario.model';
 
 @Component({
   selector: 'app-encabezado',
@@ -27,24 +28,19 @@ export class EncabezadoComponent {
   }
 
   ngOnInit(): void {
-    this.ValidarSesion();
+    this.ValidarSesion();  // Verifica el estado de la sesión
+    this.servicioSeguridad.sesionActiva$.subscribe((estado: boolean) => {
+      this.sesionActiva = estado;  // Actualiza el estado de la sesión al recibir nuevos datos
+    });
   }
 
-  ValidarSesion(){
-    if(this.servicioSeguridad.ObtenerDatosUsuarioLS()!==null){
-      this.sesionActiva = true;
-      console.log('Sesion activa');
-      
-    }else{
-      this.sesionActiva = false;
-      console.log('Sesion activa');
-    }
+  ValidarSesion() {
+    this.servicioSeguridad.ActualizarEstadoSesion();  // Asegura que el estado de la sesión esté actualizado
   }
 
-    CerrarSesionUsuario(){
-      this.servicioSeguridad.CerrarSesion();
-      this.sesionActiva = false;
-    }
+  CerrarSesion() {
+    this.servicioSeguridad.RemoverDatosUsuarioValidado();  // Remueve los datos y actualiza el estado de la sesión
+  }
 }
 
 
