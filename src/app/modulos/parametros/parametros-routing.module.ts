@@ -6,6 +6,8 @@ import { HistorialDeApuestasComponent } from './cliente/historial-de-apuestas/hi
 import { CrearMetodoDePagoComponent } from './cliente/metodos-de-pago/crear-metodo-de-pago/crear-metodo-de-pago.component';
 import { ListarMetodoDePagoComponent } from './cliente/metodos-de-pago/listar-metodo-de-pago/listar-metodo-de-pago.component';
 import { ListarPartidoComponent } from './partido/listar-partido/listar-partido.component';
+import { CrearApuestaComponent } from './apuesta/crear-apuesta/crear-apuesta.component';
+import { ListarApuestaComponent } from './apuesta/listar-apuesta/listar-apuesta.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'listar-partidos',
     component: ListarPartidoComponent
+  },
+  {
+    path:'crear-apuesta',
+    component: CrearApuestaComponent
+  },
+  {
+    path:'listar-apuestas',
+    component: ListarApuestaComponent
   }
 ];
 

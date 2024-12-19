@@ -5,7 +5,6 @@ import { PieDePaginaComponent } from './publico/pie-de-pagina/pie-de-pagina.comp
 import { EncabezadoComponent } from './publico/encabezado/encabezado.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, NavigationStart } from '@angular/router';
-import { MenuLateralComponent } from './publico/menu-lateral/menu-lateral.component';
 import { initFlowbite } from 'flowbite';
 
 @Component({

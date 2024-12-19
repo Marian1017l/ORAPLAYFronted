@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-crear-apuesta',
-  imports: [],
+  standalone: false,
   templateUrl: './crear-apuesta.component.html',
   styleUrl: './crear-apuesta.component.css'
 })

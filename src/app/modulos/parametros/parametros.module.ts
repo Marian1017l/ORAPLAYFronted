@@ -8,6 +8,8 @@ import { HistorialDeApuestasComponent } from './cliente/historial-de-apuestas/hi
 import { ListarMetodoDePagoComponent } from './cliente/metodos-de-pago/listar-metodo-de-pago/listar-metodo-de-pago.component';
 import { CrearMetodoDePagoComponent } from './cliente/metodos-de-pago/crear-metodo-de-pago/crear-metodo-de-pago.component';
 import { ListarPartidoComponent } from './partido/listar-partido/listar-partido.component';
+import { ListarApuestaComponent } from './apuesta/listar-apuesta/listar-apuesta.component';
+import { CrearApuestaComponent } from './apuesta/crear-apuesta/crear-apuesta.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ListarPartidoComponent } from './partido/listar-partido/listar-partido.
     HistorialDeApuestasComponent,
     ListarMetodoDePagoComponent,
     CrearMetodoDePagoComponent,
-    ListarPartidoComponent
+    ListarPartidoComponent,
+    ListarApuestaComponent,
+    CrearApuestaComponent
   ],
   imports: [
     CommonModule,
