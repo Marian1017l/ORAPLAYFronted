@@ -12,6 +12,7 @@ export class UsuarioModel {
   password?: string;
   estado?: boolean;
   fechaRegistro?: string;
+  saldo?: number;
   rolId?: number;
   metodoPagos?: MetodoPagoModel[]; // Define una clase o interfaz para MetodoPago
   apuestaEventos?: ApuestaEventoModel[]; // Define una clase o interfaz para ApuestaEvento
