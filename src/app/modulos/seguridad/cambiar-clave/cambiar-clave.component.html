@@ -1,1 +1,35 @@
-<p>cambiar-clave works!</p>
+<div class="container mx-auto p-8 bg-[#EEEEEE] rounded-lg shadow-lg max-w-lg my-16">
+    <h2 class="text-3xl font-semibold text-[#282258] mb-6 text-center">Cambiar Contraseña</h2>
+    
+    <form class="space-y-6">
+      <!-- Contraseña Actual -->
+      <div class="form-group">
+        <label for="currentPassword" class="block text-lg text-[#282258] mb-2">Contraseña Actual</label>
+        <input 
+          type="password" 
+          class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]"
+          id="currentPassword" 
+          name="currentPassword" 
+          placeholder="Ingrese su contraseña actual">
+      </div>
+  
+      <!-- Nueva Contraseña -->
+      <div class="form-group">
+        <label for="newPassword" class="block text-lg text-[#282258] mb-2">Nueva Contraseña</label>
+        <input 
+          type="password" 
+          class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]"
+          id="newPassword" 
+          name="newPassword" 
+          placeholder="Ingrese su nueva contraseña">
+      </div>
+  
+      <!-- Botón de Enviar -->
+      <div class="form-group text-center">
+        <button type="submit" class="w-full py-3 bg-[#282258] text-white rounded-lg hover:bg-[#00FF9C] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#00FF9C]">
+          Cambiar Contraseña
+        </button>
+      </div>
+    </form>
+  </div>
+  
