@@ -58,6 +58,7 @@ export class CrearApuestaComponent {
       option.value = partido.idPartido?.toString() || '';
       option.text = partido.equipoLocal.nombre + ' vs ' + partido.equipoVisitante.nombre + ' - ' + partido.fechaInicio;
       select.appendChild(option);
+      console.log(partido);
     }
     let select1 = document.getElementById('partidosPendientesEVENTO') as HTMLSelectElement;
     select1.innerHTML = ''; // Clear previous options
