@@ -66,6 +66,32 @@ export class ParametrosService {
     return this.http.post(`${this.urlBase}apuesta-jugador`, apuesta);
   }
 
+  AgregarApuestaEvento(usuarioid:string, cantidadApostadaEvento:number, partidoIdEvento:string, equipoIdEvento:string, tipoEvento:string): Observable<any>{
+    const apuesta = {
+      usuarioId: usuarioid,
+      cantidadApostada: cantidadApostadaEvento, 
+      partidoId: parseInt(partidoIdEvento), 
+      equipoId: parseInt(equipoIdEvento), 
+      nombreEvento: tipoEvento, 
+      posibleGanancia: 0
+    };
+    console.log(apuesta);
+    return this.http.post(`${this.urlBase}apuesta-evento`, apuesta);
+  }
+
+  AgregarApuestaMarcador(usuarioid:string, golesLocalMarcador:number, golesVisitanteMarcador:number, cantidadApostadaMarcador:number, partidoIdMarcador:string): Observable<any>{
+    const apuesta = {
+      usuarioId: usuarioid,
+      golesEquipoLocal: golesLocalMarcador, 
+      golesEquipoVisitante: golesVisitanteMarcador, 
+      cantidadApostada: cantidadApostadaMarcador, 
+      partidoId: parseInt(partidoIdMarcador), 
+      posibleGanancia: 0
+    };
+    console.log(apuesta);
+    return this.http.post(`${this.urlBase}apuesta-marcador`, apuesta);
+  }
+
   obtenerEquiposPorPartido(idPartido: string): Observable<any[]>{
     return this.http.get<any[]>(`${this.urlBase}equipos-por-partido/${idPartido}`);
   }

@@ -11,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CrearApuestaComponent {
   fGroup: FormGroup = new FormGroup({});
+  fGroup1: FormGroup = new FormGroup({});
+  fGroup2: FormGroup = new FormGroup({});
 
   constructor(
     private parametrosService: ParametrosService,
@@ -22,6 +24,8 @@ export class CrearApuestaComponent {
     this.obtenerPartidosPendientes();
     this.mostrarJugadores();
     this.ConstruirFormularioApuestaJugador();
+    this.ConstruirFormularioApuestaEvento();
+    this.ConstruirFormularioApuestaMarcador();
   }
 
   ConstruirFormularioApuestaJugador(){
@@ -34,6 +38,23 @@ export class CrearApuestaComponent {
       });
     }
 
+    ConstruirFormularioApuestaEvento(){
+      this.fGroup1 = this.fb.group({
+        monto: ['', Validators.required],
+        partidoIdEvento: ['', Validators.required],
+        tipoEvento: ['', Validators.required],
+        equipoIdEvento: ['', Validators.required]
+      });
+    }
+
+    ConstruirFormularioApuestaMarcador(){
+      this.fGroup2 = this.fb.group({
+        golesLocalMarcador: ['', Validators.required],
+        golesVisitanteMarcador: ['', Validators.required],
+        cantidadApostadaMarcador: ['', Validators.required],
+        partidoIdMarcador: ['', Validators.required]
+      });
+    }
 
   obtenerPartidosPendientes(){
     this.parametrosService.obtenerPartidosPendientes().subscribe({
@@ -140,6 +161,58 @@ export class CrearApuestaComponent {
   
   }
 
+  CrearApuestaEvento(){
+    if(!this.fGroup1.valid){
+      alert('Formulario no válido');
+      return;
+    }else{
+      let cantidadApostadaEvento = this.obtenerFormGroup1['monto'].value;
+      let partidoIdEvento = this.obtenerFormGroup1['partidoIdEvento'].value;
+      let equipoIdEvento = this.obtenerFormGroup1['equipoIdEvento'].value;
+      let tipoEvento = this.obtenerFormGroup1['tipoEvento'].value;
+      let idUsuario = this.parametrosService.ObtenerIdUsuarioLS();
+
+      if(idUsuario){
+        this.parametrosService.AgregarApuestaEvento(idUsuario, cantidadApostadaEvento, partidoIdEvento, equipoIdEvento, tipoEvento).subscribe({
+          next: (data:any)=>{
+            alert('Apuesta creada');
+          },
+          error: (error:any)=>{
+            console.log(error);
+            
+          }
+        });
+      }
+    }
+  }
+  
+  CrearApuestaMarcador(){
+    if(!this.fGroup2.valid){
+      alert('Formulario no válido');
+      return;
+    }else{
+      let golesLocalMarcador = this.obtenerFormGroup2['golesLocalMarcador'].value;
+      let golesVisitanteMarcador = this.obtenerFormGroup2['golesVisitanteMarcador'].value;
+      let cantidadApostadaMarcador = this.obtenerFormGroup2['cantidadApostadaMarcador'].value;
+      let partidoIdMarcador = this.obtenerFormGroup2['partidoIdMarcador'].value;
+      let idUsuario = this.parametrosService.ObtenerIdUsuarioLS();
+
+      if(idUsuario){
+        this.parametrosService.AgregarApuestaMarcador(idUsuario, golesLocalMarcador, golesVisitanteMarcador, cantidadApostadaMarcador, partidoIdMarcador).subscribe({
+          next: (data:any)=>{
+            alert('Apuesta creada');
+          },
+          error: (error:any)=>{
+            console.log(error);
+            
+          }
+        });
+      }
+    }
+  }
+
+
+
   mostrarEquipos(){
     let select = document.getElementById('partidosPendientesEVENTO') as HTMLSelectElement;
     let idPartido = select.value;
@@ -176,4 +249,13 @@ export class CrearApuestaComponent {
   get obtenerFormGroup(){
     return this.fGroup.controls;
   }
+
+  get obtenerFormGroup1(){   
+    return this.fGroup1.controls;
+  }
+
+  get obtenerFormGroup2(){
+    return this.fGroup2.controls;
+  }
+  
 }

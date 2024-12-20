@@ -56,14 +56,14 @@
   
       <!-- Apuesta por Evento -->
       <div class="bg-[#EEEEEE] p-6 rounded-lg shadow-md">
-        <form class="space-y-6">
+        <form [formGroup]="fGroup1"  class="space-y-6">
           <div class="border-b-2 pb-4">
             <h3 class="text-2xl font-semibold text-[#282258] mb-4">Apuesta por Evento</h3>
   
             <!-- Cantidad Apostada -->
             <div class="form-group">
               <label for="cantidadApostadaEvento" class="block text-lg text-[#282258] mb-2">Cantidad Apostada</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaEvento" name="cantidadApostadaEvento" placeholder="Ingrese la cantidad apostada">
+              <input formControlName="monto" type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaEvento" name="cantidadApostadaEvento" placeholder="Ingrese la cantidad apostada">
             </div>
   
             <!-- Partido ID -->
@@ -92,7 +92,7 @@
             <!-- Equipo ID -->
             <div class="form-group">
               <label for="equipoId" class="block text-lg text-[#282258] mb-2">Equipo</label>
-              <select formControlName="equipoId" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="equipos" name="equipoId">
+              <select formControlName="equipoIdEvento" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="equipos" name="equipoId">
               <option value="" disabled selected>Seleccione el equipo</option>
               </select>
             </div>
@@ -101,7 +101,7 @@
   
           <!-- Botón Enviar Apuesta Evento -->
           <div class="form-group text-center">
-            <button type="submit" class="w-full py-3 bg-[#282258] text-white rounded-lg hover:bg-[#00FF9C] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#00FF9C]">
+            <button type="submit" class="w-full py-3 bg-[#282258] text-white rounded-lg hover:bg-[#00FF9C] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" (click)="CrearApuestaEvento()">
               Realizar Apuesta por Evento
             </button>
           </div>
@@ -110,32 +110,32 @@
   
       <!-- Apuesta por Marcador -->
       <div class="bg-[#EEEEEE] p-6 rounded-lg shadow-md">
-        <form class="space-y-6">
+        <form [formGroup]="fGroup2" class="space-y-6">
           <div class="border-b-2 pb-4">
             <h3 class="text-2xl font-semibold text-[#282258] mb-4">Apuesta por Marcador</h3>
   
             <!-- Goles Equipo Local -->
             <div class="form-group">
               <label for="golesEquipoLocal" class="block text-lg text-[#282258] mb-2">Goles Equipo Local</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="golesEquipoLocal" name="golesEquipoLocal" placeholder="Ingrese goles equipo local">
+              <input formControlName="golesLocalMarcador" type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="golesEquipoLocal" name="golesEquipoLocal" placeholder="Ingrese goles equipo local">
             </div>
   
             <!-- Goles Equipo Visitante -->
             <div class="form-group">
               <label for="golesEquipoVisitante" class="block text-lg text-[#282258] mb-2">Goles Equipo Visitante</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="golesEquipoVisitante" name="golesEquipoVisitante" placeholder="Ingrese goles equipo visitante">
+              <input formControlName="golesVisitanteMarcador" type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="golesEquipoVisitante" name="golesEquipoVisitante" placeholder="Ingrese goles equipo visitante">
             </div>
   
             <!-- Cantidad Apostada -->
             <div class="form-group">
               <label for="cantidadApostadaMarcador" class="block text-lg text-[#282258] mb-2">Cantidad Apostada</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaMarcador" name="cantidadApostadaMarcador" placeholder="Ingrese la cantidad apostada">
+              <input formControlName="cantidadApostadaMarcador" type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaMarcador" name="cantidadApostadaMarcador" placeholder="Ingrese la cantidad apostada">
             </div>
   
             <!-- Partido ID -->
             <div class="form-group">
               <label for="partidoIdJugador" class="block text-lg text-[#282258] mb-2">Seleccione el partido</label>
-              <select formControlName="partidoId" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidosPendientesMarcador" name="partidosPendientes">
+              <select formControlName="partidoIdMarcador" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidosPendientesMarcador" name="partidosPendientes">
                 <option value="">Seleccione el partido</option>
               </select>
 
@@ -145,7 +145,7 @@
   
           <!-- Botón Enviar Apuesta Marcador -->
           <div class="form-group text-center">
-            <button type="submit" class="w-full py-3 bg-[#282258] text-white rounded-lg hover:bg-[#00FF9C] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#00FF9C]">
+            <button type="submit" class="w-full py-3 bg-[#282258] text-white rounded-lg hover:bg-[#00FF9C] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" (click)="CrearApuestaMarcador()">
               Realizar Apuesta por Marcador
             </button>
           </div>
