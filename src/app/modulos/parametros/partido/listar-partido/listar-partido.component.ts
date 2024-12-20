@@ -33,7 +33,7 @@ export class ListarPartidoComponent {
           golesLocal: partido.golesEquipoLocal,
           golesVisitante: partido.golesEquipoVisitante,
           empate: partido.empate,
-          estadoPartido: partido.estado,
+          estadoPartido: partido.Estado,
           gananciaEquipo1: partido.porcentajeGananciaEquipo1,
           gananciaEmpate: partido.porcentajeEmpate,
           gananciaEquipo2: partido.porcentajeGananciaEquipo2,

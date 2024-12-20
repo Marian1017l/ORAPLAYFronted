@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PartidoModel } from '../../../../modelos/partido.model';
 import { ParametrosService } from '../../../../servicios/parametros.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-apuesta',
@@ -9,16 +10,30 @@ import { ParametrosService } from '../../../../servicios/parametros.service';
   styleUrl: './crear-apuesta.component.css'
 })
 export class CrearApuestaComponent {
+  fGroup: FormGroup = new FormGroup({});
 
   constructor(
-    private parametrosService: ParametrosService
+    private parametrosService: ParametrosService,
+    private fb: FormBuilder
   ) { }
 
 
   ngOnInit() {
     this.obtenerPartidosPendientes();
     this.mostrarJugadores();
+    this.ConstruirFormularioApuestaJugador();
   }
+
+  ConstruirFormularioApuestaJugador(){
+      this.fGroup = this.fb.group({
+        goles: ['',Validators.required],
+        asistencias: ['',Validators.required],
+        monto: ['',Validators.required],
+        partidoId: ['',Validators.required],
+        jugadorId: ['',Validators.required]
+      });
+    }
+
 
   obtenerPartidosPendientes(){
     this.parametrosService.obtenerPartidosPendientes().subscribe({
@@ -72,5 +87,7 @@ export class CrearApuestaComponent {
     }
   }
 
-
+  get obtenerFormGroup(){
+    return this.fGroup.controls;
+  }
 }
