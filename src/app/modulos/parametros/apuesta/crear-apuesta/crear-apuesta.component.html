@@ -11,25 +11,25 @@
             <!-- Goles -->
             <div class="form-group">
               <label for="goles" class="block text-lg text-[#282258] mb-2">Goles</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="goles" name="goles" placeholder="Ingrese los goles">
+              <input formControlName="goles" type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="goles" name="goles" placeholder="Ingrese los goles">
             </div>
   
             <!-- Asistencias -->
             <div class="form-group">
               <label for="asistencias" class="block text-lg text-[#282258] mb-2">Asistencias</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="asistencias" name="asistencias" placeholder="Ingrese las asistencias">
+              <input formControlName="asistencias" type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="asistencias" name="asistencias" placeholder="Ingrese las asistencias">
             </div>
   
             <!-- Cantidad Apostada -->
             <div class="form-group">
               <label for="cantidadApostadaJugador" class="block text-lg text-[#282258] mb-2">Cantidad Apostada</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaJugador" name="cantidadApostadaJugador" placeholder="Ingrese la cantidad apostada">
+              <input formControlName="monto" type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaJugador" name="cantidadApostadaJugador" placeholder="Ingrese la cantidad apostada">
             </div>
   
             <!-- Partido ID -->
             <div class="form-group">
               <label for="partidoIdJugador" class="block text-lg text-[#282258] mb-2">Seleccione el partido</label>
-              <select class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidosPendientes" name="partidosPendientes" (change)="mostrarJugadores()">
+              <select formControlName="partidoId" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidosPendientes" name="partidosPendientes" (change)="mostrarJugadores()">
                 <option value="">Seleccione el partido</option>
               </select>
 
@@ -38,7 +38,7 @@
             <!-- Jugador ID -->
             <div class="form-group">
               <label for="jugadorId" class="block text-lg text-[#282258] mb-2">Jugador</label>
-              <select class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="jugadores" name="jugadorId">
+              <select formControlName="jugadorId" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="jugadores" name="jugadorId">
               <option value="" disabled selected>Seleccione el jugador</option>
               </select>
             </div>

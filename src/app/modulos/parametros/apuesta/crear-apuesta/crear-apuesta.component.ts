@@ -87,6 +87,33 @@ export class CrearApuestaComponent {
     }
   }
 
+  CrearApuesta(){
+    if(!this.fGroup.valid){
+      alert('Formulario no válido');
+      return;
+    }else{
+      let goles = this.obtenerFormGroup['goles'].value;
+      let asistencias = this.obtenerFormGroup['asistencias'].value;
+      let monto = this.obtenerFormGroup['monto'].value;
+      let partidoId = this.obtenerFormGroup['partidoId'].value;
+      let jugadorId = this.obtenerFormGroup['jugadorId'].value;
+      let idUsuario = this.parametrosService.ObtenerIdUsuarioLS();
+
+      if(idUsuario){
+        this.parametrosService.AgregarApuesta(idUsuario, goles, asistencias, monto, partidoId, jugadorId).subscribe({
+          next: (data:any)=>{
+            alert('Apuesta creada');
+          },
+          error: (error:any)=>{
+            console.log(error);
+            
+          }
+        });
+      }
+    }
+  
+  }
+
   get obtenerFormGroup(){
     return this.fGroup.controls;
   }

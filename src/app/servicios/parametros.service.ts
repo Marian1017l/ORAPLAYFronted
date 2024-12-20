@@ -47,13 +47,20 @@ export class ParametrosService {
   obtenerJugadoresPorPartido(idPartido: string): Observable<any[]>{ 
     return this.http.get<any[]>(`${this.urlBase}jugadores-por-partido/${idPartido}`);
   }
-
-  obtenerCommitEstupido(): Observable<any>{
-    return this.http.get<any>(`${this.urlBase}commit-estupido`);
-  }
   
   obtenerPartidos(): Observable<any[]>{
     return this.http.get<any[]>(`${this.urlBase}partidos-en-curso`);
+  }
+
+  AgregarApuesta(usuarioid:string,goles:number, asistencias:number, monto:number, partidoId:number, jugadorId:number): Observable<any>{
+    return this.http.post(`${this.urlBase}apuestas-jugador`,{
+      usuarioId: usuarioid,
+      goles: goles, 
+      asistencias: asistencias, 
+      cantidadApostada: monto, 
+      partidoId: partidoId, 
+      jugadorId: jugadorId
+    });
   }
 
 }
