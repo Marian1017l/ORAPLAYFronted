@@ -10,6 +10,7 @@ import { CrearMetodoDePagoComponent } from './cliente/metodos-de-pago/crear-meto
 import { ListarPartidoComponent } from './partido/listar-partido/listar-partido.component';
 import { ListarApuestaComponent } from './apuesta/listar-apuesta/listar-apuesta.component';
 import { CrearApuestaComponent } from './apuesta/crear-apuesta/crear-apuesta.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,10 @@ import { CrearApuestaComponent } from './apuesta/crear-apuesta/crear-apuesta.com
   ],
   imports: [
     CommonModule,
-    ParametrosRoutingModule
+    ParametrosRoutingModule,
+    ReactiveFormsModule, 
+    FormsModule
+    
   ]
 })
 export class ParametrosModule { }

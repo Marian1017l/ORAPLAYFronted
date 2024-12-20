@@ -31,5 +31,13 @@ export class ParametrosService {
   obtenerMetodosDePago(usuarioid: string): Observable<any> {
     return this.http.get(`${this.urlBase}metodo-pagos/usuario/${usuarioid}`);
   }
+
+  AgregarMetodoDePago(usuarioId:string, tipoMetodo:string, numeroCuenta:number): Observable<any> {
+    return this.http.post(`${this.urlBase}metodo-pagos`,{
+      nombreMetodo: tipoMetodo, 
+      numeroCuenta: numeroCuenta, 
+      usuarioId: usuarioId
+    });
+  }
   
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ParametrosService } from '../../../../../servicios/parametros.service';
 import { MetodoPagoModel } from '../../../../../modelos/metodo-pago.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-metodo-de-pago',
@@ -10,11 +11,12 @@ import { MetodoPagoModel } from '../../../../../modelos/metodo-pago.model';
   styleUrl: './listar-metodo-de-pago.component.css'
 })
 export class ListarMetodoDePagoComponent {
-    metodosPago:MetodoPagoModel[] = [];
+    metodosPago:any[] = [];
 
   constructor(
       private http: HttpClient,
-      private servicioParametros: ParametrosService
+      private servicioParametros: ParametrosService,
+      private router: Router
     ) { }
 
     ngOnInit(): void {
@@ -34,5 +36,9 @@ export class ListarMetodoDePagoComponent {
         }
       })
     }
+    }
+
+    redirigirCrearMetodoPago(){
+      this.router.navigate(['/parametros/crear-metodos-pago']);
     }
 }
