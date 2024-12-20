@@ -47,7 +47,7 @@
   
           <!-- Botón Enviar Apuesta Jugador -->
           <div class="form-group text-center">
-            <button type="submit" class="w-full py-3 bg-[#282258] text-white rounded-lg hover:bg-[#00FF9C] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#00FF9C]">
+            <button type="submit" (click)="CrearApuesta()" class="w-full py-3 bg-[#282258] text-white rounded-lg hover:bg-[#00FF9C] hover:text-black focus:outline-none focus:ring-2 focus:ring-[#00FF9C]">
               Realizar Apuesta por Jugador
             </button>
           </div>
@@ -66,28 +66,35 @@
               <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaEvento" name="cantidadApostadaEvento" placeholder="Ingrese la cantidad apostada">
             </div>
   
-            <!-- Posible Ganancia -->
-            <div class="form-group">
-              <label for="posibleGananciaEvento" class="block text-lg text-[#282258] mb-2">Posible Ganancia</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="posibleGananciaEvento" name="posibleGananciaEvento" placeholder="Ingrese la posible ganancia">
-            </div>
-  
             <!-- Partido ID -->
             <div class="form-group">
-              <label for="partidoIdEvento" class="block text-lg text-[#282258] mb-2">Partido ID</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidoIdEvento" name="partidoIdEvento" placeholder="Ingrese el ID del partido">
+              <label for="partidoIdJugador" class="block text-lg text-[#282258] mb-2">Seleccione el partido</label>
+              <select formControlName="partidoIdEvento" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidosPendientesEVENTO" name="partidosPendientes" (change)="mostrarEquipos()">
+                <option value="">Seleccione el partido</option>
+              </select>
             </div>
   
-            <!-- Evento ID -->
             <div class="form-group">
-              <label for="eventoId" class="block text-lg text-[#282258] mb-2">Evento ID</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="eventoId" name="eventoId" placeholder="Ingrese el ID del evento">
+              <label for="tipoEvento" class="block text-lg text-[#282258] mb-2">Tipo de Evento</label>
+              <select formControlName="tipoEvento" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="tipoEvento" name="tipoEvento">
+                <option value="PENALTI">PENALTI</option>
+                <option value="GOL ANULADO">GOL ANULADO</option>
+                <option value="TARJETA ROJA">TARJETA ROJA</option>
+                <option value="TIRO LIBRE">TIRO LIBRE</option>
+                <option value="TIRO DE ESQUINA">TIRO DE ESQUINA</option>
+                <option value="FUERA DE LUGAR">FUERA DE LUGAR</option>
+                <option value="AUTOGOL">AUTOGOL</option>
+                <option value="INTERVENCIÓN DE AFICIONADOS">INTERVENCIÓN DE AFICIONADOS</option>
+                <option value="LESIÓN">LESIÓN</option>
+              </select>
             </div>
   
             <!-- Equipo ID -->
             <div class="form-group">
-              <label for="equipoId" class="block text-lg text-[#282258] mb-2">Equipo ID</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="equipoId" name="equipoId" placeholder="Ingrese el ID del equipo">
+              <label for="equipoId" class="block text-lg text-[#282258] mb-2">Equipo</label>
+              <select formControlName="equipoId" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="equipos" name="equipoId">
+              <option value="" disabled selected>Seleccione el equipo</option>
+              </select>
             </div>
   
           </div>
@@ -125,16 +132,13 @@
               <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaMarcador" name="cantidadApostadaMarcador" placeholder="Ingrese la cantidad apostada">
             </div>
   
-            <!-- Posible Ganancia -->
-            <div class="form-group">
-              <label for="posibleGananciaMarcador" class="block text-lg text-[#282258] mb-2">Posible Ganancia</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="posibleGananciaMarcador" name="posibleGananciaMarcador" placeholder="Ingrese la posible ganancia">
-            </div>
-  
             <!-- Partido ID -->
             <div class="form-group">
-              <label for="partidoIdMarcador" class="block text-lg text-[#282258] mb-2">Partido ID</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidoIdMarcador" name="partidoIdMarcador" placeholder="Ingrese el ID del partido">
+              <label for="partidoIdJugador" class="block text-lg text-[#282258] mb-2">Seleccione el partido</label>
+              <select formControlName="partidoId" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidosPendientesMarcador" name="partidosPendientes">
+                <option value="">Seleccione el partido</option>
+              </select>
+
             </div>
   
           </div>

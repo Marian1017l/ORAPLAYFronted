@@ -59,7 +59,32 @@ export class CrearApuestaComponent {
       option.text = partido.equipoLocal.nombre + ' vs ' + partido.equipoVisitante.nombre + ' - ' + partido.fechaInicio;
       select.appendChild(option);
     }
+    let select1 = document.getElementById('partidosPendientesEVENTO') as HTMLSelectElement;
+    select1.innerHTML = ''; // Clear previous options
+    let option1 = document.createElement('option');
+    option1.value = '';
+    option1.text = 'Seleccione un partido';
+    select1.appendChild(option1);
+    for(let partido of data){
+      let option1 = document.createElement('option');
+      option1.value = partido.idPartido?.toString() || '';
+      option1.text = partido.equipoLocal.nombre + ' vs ' + partido.equipoVisitante.nombre + ' - ' + partido.fechaInicio;
+      select1.appendChild(option1);
+
+    let select2 = document.getElementById('partidosPendientesMarcador') as HTMLSelectElement;
+    select2.innerHTML = ''; // Clear previous options
+    let option2 = document.createElement('option');
+    option2.value = '';
+    option2.text = 'Seleccione un partido';
+    select2.appendChild(option2);
+    for(let partido of data){
+      let option2 = document.createElement('option');
+      option2.value = partido.idPartido?.toString() || '';
+      option2.text = partido.equipoLocal.nombre + ' vs ' + partido.equipoVisitante.nombre + ' - ' + partido.fechaInicio;
+      select2.appendChild(option2);
   }
+  }
+}
 
   mostrarJugadores() {
     let select = document.getElementById('partidosPendientes') as HTMLSelectElement;
@@ -112,6 +137,39 @@ export class CrearApuestaComponent {
       }
     }
   
+  }
+
+  mostrarEquipos(){
+    let select = document.getElementById('partidosPendientesEVENTO') as HTMLSelectElement;
+    let idPartido = select.value;
+    this.parametrosService.obtenerEquiposPorPartido(idPartido).subscribe({
+      next: (data) => {
+        this.ponerEquipos(data);
+      },
+      error: (error) => {
+        console.log('Error al obtener los jugadores del partido');
+      }
+    });
+  }
+
+  ponerEquipos(data: any[]) {
+    let select = document.getElementById('equipos') as HTMLSelectElement;
+    select.innerHTML = ''; // Clear previous options
+    let option = document.createElement('option');
+    option.value = '';
+    option.text = 'Seleccione un equipo';
+    select.appendChild(option);
+    for (let partido of data) {
+      let optionLocal = document.createElement('option');
+      optionLocal.value = partido.equipoLocal.idEquipo?.toString() || '';
+      optionLocal.text = partido.equipoLocal.nombre;
+      select.appendChild(optionLocal);
+
+      let optionVisitante = document.createElement('option');
+      optionVisitante.value = partido.equipoVisitante.idEquipo?.toString() || '';
+      optionVisitante.text = partido.equipoVisitante.nombre;
+      select.appendChild(optionVisitante);
+    }
   }
 
   get obtenerFormGroup(){
