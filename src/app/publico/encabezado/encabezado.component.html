@@ -31,9 +31,16 @@
             class="z-10 hidden font-normal text-black bg-gray-100 divide-y divide-gray-700 rounded-lg shadow w-52">
             <ul class="py-2 text-sm text-white">
                 
-            <!-- Botón Partidos -->
+            <!-- Botón apuestas en curso -->
             <li>
                 <a routerLink="/seguridad/apuestas" 
+                class="block py-2 px-4 hover:bg-[#00FF9C] text-black rounded-lg">
+                    Apuestas en curso
+                </a>
+            </li>
+            <!-- Botón Partidos -->
+            <li>
+                <a routerLink="/parametros/listar-partidos" 
                 class="block py-2 px-4 hover:bg-[#00FF9C] text-black rounded-lg">
                     Partidos
                 </a>
@@ -47,7 +54,7 @@
             </li>
             <!-- Botón Historial de apuestas -->
             <li *ngIf="sesionActiva">
-                <a routerLink="/parametros/listar-apuestas" 
+                <a routerLink="/parametros/listar-apuesta" 
                 class="block py-2 px-4 hover:bg-[#00FF9C] text-black rounded-lg">
                     Historial de Apuestas
                 </a>

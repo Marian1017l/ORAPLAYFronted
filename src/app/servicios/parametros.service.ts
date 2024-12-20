@@ -52,4 +52,8 @@ export class ParametrosService {
     return this.http.get<any>(`${this.urlBase}commit-estupido`);
   }
   
+  obtenerPartidos(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.urlBase}partidos-en-curso`);
+  }
+
 }

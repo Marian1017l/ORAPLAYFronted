@@ -10,31 +10,31 @@
                             <th class="px-6 py-3 text-sm font-bold text-left">Equipo 1</th>
                             <th class="px-6 py-3 text-sm font-bold text-left">Empate</th>
                             <th class="px-6 py-3 text-sm font-bold text-left">Equipo 2</th>
-                            <th class="px-6 py-3 text-sm font-bold text-left">Total apuestas</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Fila para el nombre del torneo -->
-                        <tr>
-                            <td colspan="6" class="px-6 py-4 text-lg font-bold text-[#282258]">Torneo 1</td> <!-- Nombre del torneo -->
-                        </tr>
-                        <!-- Fila del partido 1 -->
-                        <tr class="border-t">
-                            <td class="px-6 py-4 text-sm font-semibold">Fecha: 17/12/2024</td>
-                            <td class="px-6 py-4 text-sm font-semibold">Equipo 1 vs Equipo 2</td>
-                            <td class="px-6 py-4 text-sm">
-                                <button class="bg-[#282258] bg-opacity-40 text-white w-full h-full px-4 py-2 rounded">1</button>
-                            </td>
-                            <td class="px-6 py-4 text-sm">
-                                <button class="bg-[#282258] bg-opacity-40 text-white w-full h-full px-4 py-2 rounded">2</button>
-                            </td>
-                            <td class="px-6 py-4 text-sm">
-                                <button class="bg-[#282258] bg-opacity-40 text-white w-full h-full px-4 py-2 rounded">3</button>
-                            </td>
-                            <td class="px-6 py-4 text-sm">
-                                <button class="bg-[#282258] bg-opacity-40 text-white w-full h-full px-4 py-2 rounded">Total</button>
-                            </td>
-                        </tr>
+                        <ng-container *ngFor="let partido of listaPartidos">
+                            <!-- Fila para el nombre del torneo -->
+                            <tr>
+                              <td colspan="6" class="px-6 py-4 text-lg font-bold text-[#282258]">{{ partido.nombreTorneo }}</td>
+                            </tr>
+                            <!-- Fila del partido -->
+                            <tr class="border-t">
+                              <td class="px-6 py-4 text-sm font-semibold">{{ partido.fechaInicio }}</td>
+                              <td class="px-6 py-4 text-sm font-semibold">{{ partido.equipoLocal }} vs {{ partido.equipoVisitante }}</td>
+                              <td class="px-6 py-4 text-sm">
+                                <button class="bg-[#282258] bg-opacity-40 text-white w-full h-full px-4 py-2 rounded">{{ partido.gananciaEquipo1 }}</button>
+                              </td>
+                              <td class="px-6 py-4 text-sm">
+                                <button class="bg-[#282258] bg-opacity-40 text-white w-full h-full px-4 py-2 rounded">{{ partido.gananciaEmpate }}</button>
+                              </td>
+                              <td class="px-6 py-4 text-sm">
+                                <button class="bg-[#282258] bg-opacity-40 text-white w-full h-full px-4 py-2 rounded">{{ partido.gananciaEquipo2 }}</button>
+                              </td>
+                              <td class="px-6 py-4 text-sm">
+                              </td>
+                            </tr>
+                          </ng-container>
                     </tbody>
                 </table>
             </div>

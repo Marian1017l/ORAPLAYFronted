@@ -5,81 +5,62 @@
     <table class="w-full text-sm text-left rtl:text-right text-[#282258] border-collapse border border-gray-200">
         <thead class="text-xs text-white uppercase bg-[#282258]">
             <tr>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Torneo
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Estadio
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Equipo Local
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Equipo Visitante
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Goles Local
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Goles Visitante
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Empate
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Fecha Inicio
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Fecha Fin
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Estado
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Ganancia Equipo Local
-                </th>
-                <th scope="col" class="px-6 py-3 border border-gray-300">
-                    Ganancia Equipo Visitante
-                </th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Torneo</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Estadio</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Equipo Local</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Equipo Visitante</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Goles Local</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Goles Visitante</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Empate</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Fecha Inicio</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Fecha Fin</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Estado</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Ganancia Equipo Local</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Ganancia Equipo Visitante</th>
+                <th scope="col" class="px-6 py-3 border border-gray-300">Ganancia Empate</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-[#EEEEEE] border-b dark:bg-gray-800 dark:border-gray-700">
+            <!-- Recorrido de listaPartidos con *ngFor -->
+            <tr *ngFor="let partido of listaPartidos" class="bg-[#EEEEEE] border-b dark:bg-gray-800 dark:border-gray-700">
                 <td class="px-6 py-4 font-medium text-[#282258] whitespace-nowrap dark:text-white border border-gray-300">
-                    1
+                    {{ partido.nombreTorneo }}
                 </td>
                 <td class="px-6 py-4 text-[#282258] border border-gray-300">
-                    2
+                    {{ partido.nombreEstadio }}
                 </td>
                 <td class="px-6 py-4 border border-gray-300">
-                3
+                    {{ partido.equipoLocal }}
                 </td>
                 <td class="px-6 py-4 border border-gray-300">
-                4
+                    {{ partido.equipoVisitante }}
                 </td>
                 <td class="px-6 py-4 font-medium text-[#282258] whitespace-nowrap dark:text-white border border-gray-300">
-                    1
+                    {{ partido.golesLocal }}
                 </td>
                 <td class="px-6 py-4 text-[#282258] border border-gray-300">
-                    2
+                    {{ partido.golesVisitante }}
                 </td>
                 <td class="px-6 py-4 border border-gray-300">
-                3
+                    {{ partido.empate ? 'Sí' : 'No' }}
                 </td>
                 <td class="px-6 py-4 border border-gray-300">
-                4
+                    {{ partido.fechaInicio }}
                 </td>
                 <td class="px-6 py-4 font-medium text-[#282258] whitespace-nowrap dark:text-white border border-gray-300">
-                    1
+                    {{ partido.fechaFin }}
                 </td>
                 <td class="px-6 py-4 text-[#282258] border border-gray-300">
-                    2
+                    {{ partido.estadoPartido }}
                 </td>
                 <td class="px-6 py-4 border border-gray-300">
-                3
+                    {{ partido.gananciaEquipo1 }} %
                 </td>
                 <td class="px-6 py-4 border border-gray-300">
-                    3
+                    {{ partido.gananciaEquipo2 }} %
+                </td>
+                <td class="px-6 py-4 border border-gray-300">
+                    {{ partido.gananciaEmpate }} %
                 </td>
             </tr>
         </tbody>
