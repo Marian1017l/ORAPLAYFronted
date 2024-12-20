@@ -26,22 +26,21 @@
               <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="cantidadApostadaJugador" name="cantidadApostadaJugador" placeholder="Ingrese la cantidad apostada">
             </div>
   
-            <!-- Posible Ganancia -->
-            <div class="form-group">
-              <label for="posibleGananciaJugador" class="block text-lg text-[#282258] mb-2">Posible Ganancia</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="posibleGananciaJugador" name="posibleGananciaJugador" placeholder="Ingrese la posible ganancia">
-            </div>
-  
             <!-- Partido ID -->
             <div class="form-group">
-              <label for="partidoIdJugador" class="block text-lg text-[#282258] mb-2">Partido ID</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidoIdJugador" name="partidoIdJugador" placeholder="Ingrese el ID del partido">
+              <label for="partidoIdJugador" class="block text-lg text-[#282258] mb-2">Seleccione el partido</label>
+              <select class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="partidosPendientes" name="partidosPendientes" (change)="mostrarJugadores()">
+                <option value="">Seleccione el partido</option>
+              </select>
+
             </div>
-  
+        
             <!-- Jugador ID -->
             <div class="form-group">
-              <label for="jugadorId" class="block text-lg text-[#282258] mb-2">Jugador ID</label>
-              <input type="number" class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="jugadorId" name="jugadorId" placeholder="Ingrese el ID del jugador">
+              <label for="jugadorId" class="block text-lg text-[#282258] mb-2">Jugador</label>
+              <select class="block w-full px-4 py-2 border border-[#282258] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00FF9C]" id="jugadores" name="jugadorId">
+              <option value="" disabled selected>Seleccione el jugador</option>
+              </select>
             </div>
   
           </div>

@@ -39,5 +39,14 @@ export class ParametrosService {
       usuarioId: usuarioId
     });
   }
+
+  obtenerPartidosPendientes(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.urlBase}partidos-pendientes`);
+  }
+
+  obtenerJugadoresPorPartido(idPartido: string): Observable<any[]>{ 
+    return this.http.get<any[]>(`${this.urlBase}jugadores-por-partido/${idPartido}`);
+  }
+
   
 }
